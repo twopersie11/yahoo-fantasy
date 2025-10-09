@@ -25,6 +25,20 @@ If you liked this project, please consider starring the repository.
 1. Start the application. You need Spring Boot to run on HTTPS using a self-signed certificate (which the project does by default). A dummy self-signed certificate is included in the `src/main/resources` directory.
 1. In a browser, go to https://localhost:8443. Your browser might say that it is unsafe, but bypass those warnings.
 
+## HTTPS Dev Backend (Node)
+
+For a lightweight OAuth-focused workflow, the repository now ships with a standalone Express/TypeScript backend under `server/` that proxies Yahoo Fantasy OAuth and API calls over HTTPS. To run it locally:
+
+1. `cd server`
+2. `cp .env.sample .env` and fill in your Yahoo app credentials plus any overrides. (The real `.env` is already ignored by Git.)
+3. `npm install`
+4. `npm run cert:gen` to create a trusted self-signed certificate at `certs/dev/`
+5. `npm run dev`
+6. Visit `https://localhost:8443/api/health` to verify the server prints `{ ok: true }`
+7. Go to `https://localhost:8443/auth/login`, approve the Yahoo consent screen, then hit `https://localhost:8443/api/me/leagues` to view your NBA league payload. Tokens persist in `server/.data/yahoo_tokens.json` and refresh automatically.
+
+If you add a Vite/React frontend, point it at this backend by setting `VITE_API_BASE=https://localhost:8443`.
+
 If you're considering contributing to this project:
 1. Use the [Google Java Format plugin](https://github.com/google/google-java-format) for formatting your code.
 1. Use [SonarLint](https://www.sonarlint.org/) to check for code quality issues.
