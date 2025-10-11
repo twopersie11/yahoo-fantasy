@@ -5,5 +5,9 @@ import java.util.List;
 
 public interface PlayerRankingService {
 
-  List<RankedPlayer> getRankedPlayers(String leagueId);
+  default List<RankedPlayer> getRankedPlayers(String leagueId) {
+    return getRankedPlayers(leagueId, "stats");
+  }
+
+  List<RankedPlayer> getRankedPlayers(String leagueId, String statSource);
 }
