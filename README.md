@@ -29,9 +29,9 @@ If you liked this project, please consider starring the repository.
 
 For a lightweight OAuth-focused workflow, the repository now ships with a standalone Express/TypeScript backend under `server/` that proxies Yahoo Fantasy OAuth and API calls over HTTPS.
 
-1. Create or update your [Yahoo Developer app](https://developer.yahoo.com/apps/) and add `https://localhost:8443/login/oauth2/code/yahoo` as an authorized **Redirect URI**. Ensure the scopes include **Fantasy Sports - Read** plus **Profile** and **Email** (which implicitly adds the **openid** scope Yahoo requires when requesting profile or email data).
+1. Create or update your [Yahoo Developer app](https://developer.yahoo.com/apps/) and add `https://localhost:8443/login/oauth2/code/yahoo` as an authorized **Redirect URI**. Ensure the scopes include **Fantasy Sports - Read** plus **Profile** and **Email**.
 2. `cd server`
-3. `cp .env.sample .env` and populate the Yahoo credentials along with a random `SESSION_SECRET`. The default `YAHOO_SCOPE` (`openid fspt-r profile email`) matches the recommended Yahoo permissions, but you can adjust any optional overrides in this file later—`openid` is automatically appended if you omit it to avoid `invalid_scope` errors from Yahoo.
+3. `cp .env.sample .env` and populate the Yahoo credentials along with a random `SESSION_SECRET`. You can adjust any optional overrides in this file later.
 4. `npm install`
 5. `npm run cert:gen` to generate `certs/dev/cert.pem` and `certs/dev/key.pem` self-signed certs for `https://localhost:8443`.
 6. `npm run dev`

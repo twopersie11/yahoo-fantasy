@@ -6,21 +6,7 @@ const router = Router();
 
 const AUTHORIZE_URL = 'https://api.login.yahoo.com/oauth2/request_auth';
 const AUTH_COOKIE = 'yf_auth';
-const DEFAULT_SCOPE = 'openid fspt-r profile email';
-const REQUIRED_SCOPES = ['openid'];
-
-function resolveScope(): string {
-  const rawScope = process.env.YAHOO_SCOPE ?? DEFAULT_SCOPE;
-  const parts = rawScope.split(/\s+/).filter(Boolean);
-  const seen = new Set(parts);
-  for (const required of REQUIRED_SCOPES) {
-    if (!seen.has(required)) {
-      parts.push(required);
-      seen.add(required);
-    }
-  }
-  return parts.join(' ');
-}
+const DEFAULT_SCOPE = 'fspt-r profile email';
 
 function requireEnv(key: keyof NodeJS.ProcessEnv): string {
   const value = process.env[key];
@@ -42,7 +28,7 @@ function getPostLoginRedirect(): string {
 router.get('/auth/yahoo', (req, res, next) => {
   const clientId = requireEnv('YAHOO_CLIENT_ID');
   const redirectUri = requireEnv('YAHOO_REDIRECT_URI');
-  const scope = resolveScope();
+  const scope = process.env.YAHOO_SCOPE ?? DEFAULT_SCOPE;
 
   const state = crypto.randomBytes(16).toString('hex');
   if (!req.session) {
@@ -79,7 +65,7 @@ router.get('/auth/login', (_req, res) => {
 router.get('/login/oauth2/code/yahoo', async (req, res, next) => {
   const { code, state, error, error_description: errorDescription } = req.query;
   const redirectUri = requireEnv('YAHOO_REDIRECT_URI');
-  const scope = resolveScope();
+  const scope = process.env.YAHOO_SCOPE ?? DEFAULT_SCOPE;
 
   if (error) {
     console.error('Yahoo authorization returned an error.', {
