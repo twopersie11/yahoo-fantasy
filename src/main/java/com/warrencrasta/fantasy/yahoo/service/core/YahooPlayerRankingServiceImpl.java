@@ -50,12 +50,7 @@ public class YahooPlayerRankingServiceImpl implements PlayerRankingService {
 
   @Override
   public List<RankedPlayer> getRankedPlayers(String leagueId) {
-    return getRankedPlayers(leagueId, "stats");
-  }
-
-  @Override
-  public List<RankedPlayer> getRankedPlayers(String leagueId, String statSource) {
-    List<Player> players = playerService.getDraftablePlayers(leagueId, statSource);
+    List<Player> players = playerService.getDraftablePlayers(leagueId, "stats");
     if (players.isEmpty()) {
       return List.of();
     }
