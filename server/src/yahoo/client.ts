@@ -223,3 +223,32 @@ export async function withYahooClient<T>(fn: (client: YahooFantasy) => Promise<T
     return await fn(client);
   }
 }
+
+async function getAuthenticatedToken(): Promise<TokenSet> {
+  const token = await ensureFreshToken();
+  if (!token) {
+    throw Object.assign(new Error('Yahoo account not connected.'), { status: 401 });
+  }
+  return token;
+}
+
+export async function fetchNbaGameResource(): Promise<unknown> {
+  const token = await getAuthenticatedToken();
+  try {
+    const { data } = await axios.get('https://fantasysports.yahooapis.com/fantasy/v2/game/nba', {
+      headers: {
+        Authorization: `Bearer ${token.access_token}`,
+        Accept: 'application/json'
+      }
+    });
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const message = error.response?.data ?? error.message;
+      throw Object.assign(new Error(`Failed to fetch Yahoo Fantasy game data: ${JSON.stringify(message)}`), {
+        status: error.response?.status
+      });
+    }
+    throw error;
+  }
+}

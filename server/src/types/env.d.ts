@@ -10,9 +10,10 @@ declare global {
       CORS_ORIGINS?: string;
       SESSION_SECRET?: string;
       TOKEN_STORE?: string;
-      TLS_KEY: string;
-      TLS_CRT: string;
+      TLS_KEY?: string;
+      TLS_CRT?: string;
       POST_LOGIN_REDIRECT?: string;
+      YAHOO_SCOPE?: string;
     }
   }
 }
