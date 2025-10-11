@@ -2,6 +2,7 @@ package com.warrencrasta.fantasy.yahoo.dto.external.yahoo;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.warrencrasta.fantasy.yahoo.dto.external.yahoo.player.PlayersDTO;
 import java.util.List;
 import lombok.Data;
 
@@ -25,4 +26,9 @@ public class LeagueDTO {
   private ScoreboardDTO scoreboard;
 
   private SettingsDTO settings;
+
+  private PlayersDTO players;
+
+  @JsonAlias({"draft_results"})
+  private DraftResultsDTO draftResults;
 }
