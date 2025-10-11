@@ -18,26 +18,29 @@ An application that calculates and displays various statistics that Yahoo doesn'
 If you liked this project, please consider starring the repository.
 
 ## Local Setup
-1. Create an app in [Yahoo Developer](https://developer.yahoo.com/apps/). Set the **Redirect URI** to `https://localhost:8443/login/oauth2/code/yahoo`. Choose **Fantasy Sports: Read** and **Open ID Connect Permissions: Email and Profile** from the permissions.
+1. Create an app in [Yahoo Developer](https://developer.yahoo.com/apps/). Set the **Redirect URI** to `https://localhost:8443/login/oauth2/code/yahoo`. Choose **Fantasy Sports: Read** and **Open ID Connect Permissions: Email and Profile** (which also enables the required **openid** scope) from the permissions.
 1. Ensure you have [Git](https://git-scm.com/), [Apache Maven](https://maven.apache.org/), and Java 11 installed on your machine.
 1. Clone this project. It is a Spring Boot project that you can run either in an IDE or on the command line. From the root directory of the project: `mvn clean install`. Ensure that you have the **-Dspring.profiles.active=localhost** VM option set.
 1. Replace the `spring.security.oauth2.client.registration.yahoo.client-id` and `spring.security.oauth2.client.registration.yahoo.client-secret` values in `application-localhost.properties` with the ones from your app in Step (1).
 1. Start the application. You need Spring Boot to run on HTTPS using a self-signed certificate (which the project does by default). A dummy self-signed certificate is included in the `src/main/resources` directory.
 1. In a browser, go to https://localhost:8443. Your browser might say that it is unsafe, but bypass those warnings.
 
-## HTTPS Dev Backend (Node)
+## Quickstart (Node OAuth backend)
 
-For a lightweight OAuth-focused workflow, the repository now ships with a standalone Express/TypeScript backend under `server/` that proxies Yahoo Fantasy OAuth and API calls over HTTPS. To run it locally:
+For a lightweight OAuth-focused workflow, the repository now ships with a standalone Express/TypeScript backend under `server/` that proxies Yahoo Fantasy OAuth and API calls over HTTPS.
 
-1. `cd server`
-2. `cp .env.sample .env` and fill in your Yahoo app credentials plus any overrides. (The real `.env` is already ignored by Git.)
-3. `npm install`
-4. `npm run cert:gen` to create a trusted self-signed certificate at `certs/dev/`
-5. `npm run dev`
-6. Visit `https://localhost:8443/api/health` to verify the server prints `{ ok: true }`
-7. Go to `https://localhost:8443/auth/login`, approve the Yahoo consent screen, then hit `https://localhost:8443/api/me/leagues` to view your NBA league payload. Tokens persist in `server/.data/yahoo_tokens.json` and refresh automatically.
+1. Create or update your [Yahoo Developer app](https://developer.yahoo.com/apps/) and add `https://localhost:8443/login/oauth2/code/yahoo` as an authorized **Redirect URI**. Ensure the scopes include **Fantasy Sports - Read** plus **Profile** and **Email** (which implicitly adds the **openid** scope Yahoo requires when requesting profile or email data).
+2. `cd server`
+3. `cp .env.sample .env` and populate the Yahoo credentials along with a random `SESSION_SECRET`. The default `YAHOO_SCOPE` (`openid fspt-r profile email`) matches the recommended Yahoo permissions, but you can adjust any optional overrides in this file later—`openid` is automatically appended if you omit it to avoid `invalid_scope` errors from Yahoo.
+4. `npm install`
+5. `npm run cert:gen` to generate `certs/dev/cert.pem` and `certs/dev/key.pem` self-signed certs for `https://localhost:8443`.
+6. `npm run dev`
+7. Visit `https://localhost:8443/api/health` to verify the server prints `{ ok: true }`.
+8. Start the OAuth flow at `https://localhost:8443/auth/yahoo` (or `/auth/login` which redirects there), approve the Yahoo consent screen, then hit:
+   * `https://localhost:8443/api/me/leagues` to fetch your NBA league payload via the Yahoo Fantasy SDK.
+   * `https://localhost:8443/api/yahoo/game/nba` to see a raw sample response from `https://fantasysports.yahooapis.com/fantasy/v2/game/nba` using your bearer token.
 
-If you add a Vite/React frontend, point it at this backend by setting `VITE_API_BASE=https://localhost:8443`.
+Tokens persist in `server/.data/yahoo_tokens.json`, refresh automatically, and the backend logs the redirect URI, scope, and any Yahoo error descriptions to help with debugging. If you add a Vite/React frontend, point it at this backend by setting `VITE_API_BASE=https://localhost:8443`.
 
 If you're considering contributing to this project:
 1. Use the [Google Java Format plugin](https://github.com/google/google-java-format) for formatting your code.
