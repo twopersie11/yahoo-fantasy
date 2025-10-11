@@ -4,8 +4,8 @@ const fs = require('fs-extra');
 const path = require('path');
 
 async function ensureCert() {
-  const keyPath = path.resolve(__dirname, '../certs/dev/localhost.key');
-  const crtPath = path.resolve(__dirname, '../certs/dev/localhost.crt');
+  const keyPath = path.resolve(__dirname, '../certs/dev/key.pem');
+  const crtPath = path.resolve(__dirname, '../certs/dev/cert.pem');
 
   await fs.ensureDir(path.dirname(keyPath));
 
