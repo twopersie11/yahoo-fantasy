@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,8 +26,10 @@ public class DraftRestController {
   }
 
   @GetMapping("/{leagueId}/draft-rankings")
-  public List<RankedPlayer> getDraftRankings(@PathVariable @NotBlank String leagueId) {
-    return playerRankingService.getRankedPlayers(leagueId);
+  public List<RankedPlayer> getDraftRankings(
+      @PathVariable @NotBlank String leagueId,
+      @RequestParam(name = "statSource", defaultValue = "stats") String statSource) {
+    return playerRankingService.getRankedPlayers(leagueId, statSource);
   }
 
   @GetMapping("/{leagueId}/draft-picks")
