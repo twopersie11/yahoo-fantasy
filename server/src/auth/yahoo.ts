@@ -6,7 +6,7 @@ const router = Router();
 
 const AUTHORIZE_URL = 'https://api.login.yahoo.com/oauth2/request_auth';
 const AUTH_COOKIE = 'yf_auth';
-const DEFAULT_SCOPE = 'openid fspt-r profile email';
+const DEFAULT_SCOPE = 'fspt-r profile email';
 
 function requireEnv(key: keyof NodeJS.ProcessEnv): string {
   const value = process.env[key];
