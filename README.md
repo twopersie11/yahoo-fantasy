@@ -18,7 +18,7 @@ An application that calculates and displays various statistics that Yahoo doesn'
 If you liked this project, please consider starring the repository.
 
 ## Local Setup
-1. Create an app in [Yahoo Developer](https://developer.yahoo.com/apps/). Set the **Redirect URI** to `https://localhost:8443/login/oauth2/code/yahoo`. Choose **Fantasy Sports: Read** and **Open ID Connect Permissions: Email and Profile** from the permissions.
+1. Create an app in [Yahoo Developer](https://developer.yahoo.com/apps/). Set the **Redirect URI** to `https://localhost:8443/login/oauth2/code/yahoo`. Choose **Fantasy Sports: Read** and **Open ID Connect Permissions: Email and Profile** (which also enables the required **openid** scope) from the permissions.
 1. Ensure you have [Git](https://git-scm.com/), [Apache Maven](https://maven.apache.org/), and Java 11 installed on your machine.
 1. Clone this project. It is a Spring Boot project that you can run either in an IDE or on the command line. From the root directory of the project: `mvn clean install`. Ensure that you have the **-Dspring.profiles.active=localhost** VM option set.
 1. Replace the `spring.security.oauth2.client.registration.yahoo.client-id` and `spring.security.oauth2.client.registration.yahoo.client-secret` values in `application-localhost.properties` with the ones from your app in Step (1).
