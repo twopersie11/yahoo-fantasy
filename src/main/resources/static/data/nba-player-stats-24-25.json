@@ -1,0 +1,135 @@
+{
+  "season": "2024-25",
+  "players": [
+    {
+      "name": "Victor Wembanyama",
+      "team": "SAS",
+      "position": "C",
+      "gamesPlayed": 72,
+      "averages": {
+        "pts": 24.5,
+        "reb": 11.3,
+        "ast": 4.4,
+        "stl": 1.2,
+        "blk": 3.5,
+        "tov": 3.5,
+        "fgPct": 0.472,
+        "threePm": 2.1
+      },
+      "totals": {
+        "pts": 1764,
+        "reb": 813.6,
+        "ast": 316.8,
+        "stl": 86.4,
+        "blk": 252,
+        "tov": 252,
+        "fgPct": 0.472,
+        "threePm": 151.2
+      }
+    },
+    {
+      "name": "Nikola Jokic",
+      "team": "DEN",
+      "position": "C",
+      "gamesPlayed": 80,
+      "averages": {
+        "pts": 27.2,
+        "reb": 12.1,
+        "ast": 9.4,
+        "stl": 1.3,
+        "blk": 1,
+        "tov": 3.1,
+        "fgPct": 0.589,
+        "threePm": 1.2
+      },
+      "totals": {
+        "pts": 2176,
+        "reb": 968,
+        "ast": 752,
+        "stl": 104,
+        "blk": 80,
+        "tov": 248,
+        "fgPct": 0.589,
+        "threePm": 96
+      }
+    },
+    {
+      "name": "Luka Doncic",
+      "team": "DAL",
+      "position": "PG",
+      "gamesPlayed": 75,
+      "averages": {
+        "pts": 34.5,
+        "reb": 9.5,
+        "ast": 10.1,
+        "stl": 1.5,
+        "blk": 0.6,
+        "tov": 4.2,
+        "fgPct": 0.489,
+        "threePm": 4.3
+      },
+      "totals": {
+        "pts": 2587.5,
+        "reb": 712.5,
+        "ast": 757.5,
+        "stl": 112.5,
+        "blk": 45,
+        "tov": 315,
+        "fgPct": 0.489,
+        "threePm": 322.5
+      }
+    },
+    {
+      "name": "Anthony Edwards",
+      "team": "MIN",
+      "position": "SG",
+      "gamesPlayed": 78,
+      "averages": {
+        "pts": 28.7,
+        "reb": 6.1,
+        "ast": 5.3,
+        "stl": 1.5,
+        "blk": 0.8,
+        "tov": 3.2,
+        "fgPct": 0.474,
+        "threePm": 3.2
+      },
+      "totals": {
+        "pts": 2238.6,
+        "reb": 475.8,
+        "ast": 413.4,
+        "stl": 117,
+        "blk": 62.4,
+        "tov": 249.6,
+        "fgPct": 0.474,
+        "threePm": 249.6
+      }
+    },
+    {
+      "name": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "position": "PG",
+      "gamesPlayed": 76,
+      "averages": {
+        "pts": 31,
+        "reb": 5.7,
+        "ast": 6.5,
+        "stl": 2.1,
+        "blk": 1,
+        "tov": 2.5,
+        "fgPct": 0.538,
+        "threePm": 1.5
+      },
+      "totals": {
+        "pts": 2356,
+        "reb": 433.2,
+        "ast": 494,
+        "stl": 159.6,
+        "blk": 76,
+        "tov": 190,
+        "fgPct": 0.538,
+        "threePm": 114
+      }
+    }
+  ]
+}

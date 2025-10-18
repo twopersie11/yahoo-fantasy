@@ -1,0 +1,135 @@
+{
+  "season": "2023-24",
+  "players": [
+    {
+      "name": "Nikola Jokic",
+      "team": "DEN",
+      "position": "C",
+      "gamesPlayed": 79,
+      "averages": {
+        "pts": 26.4,
+        "reb": 12.4,
+        "ast": 9,
+        "stl": 1.4,
+        "blk": 0.9,
+        "tov": 3,
+        "fgPct": 0.583,
+        "threePm": 1.1
+      },
+      "totals": {
+        "pts": 2085.6,
+        "reb": 979.6,
+        "ast": 711,
+        "stl": 110.6,
+        "blk": 71.1,
+        "tov": 237,
+        "fgPct": 0.583,
+        "threePm": 86.9
+      }
+    },
+    {
+      "name": "Luka Doncic",
+      "team": "DAL",
+      "position": "PG",
+      "gamesPlayed": 70,
+      "averages": {
+        "pts": 33.9,
+        "reb": 9.2,
+        "ast": 9.8,
+        "stl": 1.4,
+        "blk": 0.5,
+        "tov": 4,
+        "fgPct": 0.484,
+        "threePm": 4.1
+      },
+      "totals": {
+        "pts": 2373,
+        "reb": 644,
+        "ast": 686,
+        "stl": 98,
+        "blk": 35,
+        "tov": 280,
+        "fgPct": 0.484,
+        "threePm": 287
+      }
+    },
+    {
+      "name": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "position": "PG",
+      "gamesPlayed": 75,
+      "averages": {
+        "pts": 30.1,
+        "reb": 5.5,
+        "ast": 6.2,
+        "stl": 2,
+        "blk": 0.9,
+        "tov": 2.3,
+        "fgPct": 0.535,
+        "threePm": 1.3
+      },
+      "totals": {
+        "pts": 2257.5,
+        "reb": 412.5,
+        "ast": 465,
+        "stl": 150,
+        "blk": 67.5,
+        "tov": 172.5,
+        "fgPct": 0.535,
+        "threePm": 97.5
+      }
+    },
+    {
+      "name": "Giannis Antetokounmpo",
+      "team": "MIL",
+      "position": "PF",
+      "gamesPlayed": 73,
+      "averages": {
+        "pts": 30.4,
+        "reb": 11.5,
+        "ast": 6.5,
+        "stl": 1.2,
+        "blk": 1.1,
+        "tov": 3.4,
+        "fgPct": 0.611,
+        "threePm": 0.2
+      },
+      "totals": {
+        "pts": 2219.2,
+        "reb": 839.5,
+        "ast": 474.5,
+        "stl": 87.6,
+        "blk": 80.3,
+        "tov": 248.2,
+        "fgPct": 0.611,
+        "threePm": 14.6
+      }
+    },
+    {
+      "name": "Jayson Tatum",
+      "team": "BOS",
+      "position": "SF",
+      "gamesPlayed": 74,
+      "averages": {
+        "pts": 26.9,
+        "reb": 8.1,
+        "ast": 4.9,
+        "stl": 1,
+        "blk": 0.6,
+        "tov": 2.9,
+        "fgPct": 0.475,
+        "threePm": 3.1
+      },
+      "totals": {
+        "pts": 1980.6,
+        "reb": 599.4,
+        "ast": 362.6,
+        "stl": 74,
+        "blk": 44.4,
+        "tov": 214.6,
+        "fgPct": 0.475,
+        "threePm": 229.4
+      }
+    }
+  ]
+}
