@@ -20,7 +20,7 @@ public class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
         .authenticated()
         .and()
         .oauth2Login()
-        .defaultSuccessUrl("/weekly-matchups", true)
+        .defaultSuccessUrl("/player-stats", true)
         .loginPage("/signin");
   }
 
